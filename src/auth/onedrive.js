@@ -8,10 +8,10 @@ export async function getAccessToken() {
     return Math.floor(Date.now() / 1000)
   }
 
-  const refresh_token = await BUCKET.get('refresh_token')
+  const refresh_token = await ONEDRIVECFINDEX.get('refresh_token')
 
   // Fetch access token
-  const data = await BUCKET.get('onedrive', 'json')
+  const data = await ONEDRIVECFINDEX.get('onedrive', 'json')
   if (data && data.access_token && timestamp() < data.expire_at) {
     console.log('Fetched token from storage.')
     return data.access_token
@@ -35,7 +35,7 @@ export async function getAccessToken() {
     // Update expiration time on token refresh
     data.expire_at = timestamp() + data.expires_in
 
-    await BUCKET.put('onedrive', JSON.stringify(data))
+    await ONEDRIVECFINDEX.put('onedrive', JSON.stringify(data))
     console.info('Successfully updated access_token.')
 
     // Finally, return access token
@@ -52,7 +52,7 @@ export async function getAccessToken() {
  * @param {string} accessToken token for accessing graph API
  */
 export async function getSiteID(accessToken) {
-  let data = await BUCKET.get('sharepoint', 'json')
+  let data = await ONEDRIVECFINDEX.get('sharepoint', 'json')
   if (!data) {
     const resp = await fetch(`${config.apiEndpoint.graph}${config.baseResource}?$select=id`, {
       headers: {
@@ -62,7 +62,7 @@ export async function getSiteID(accessToken) {
     if (resp.ok) {
       data = await resp.json()
       console.log('Got & stored site-id.')
-      await BUCKET.put('sharepoint', JSON.stringify({ id: data.id }))
+      await ONEDRIVECFINDEX.put('sharepoint', JSON.stringify({ id: data.id }))
     }
   }
   return data.id

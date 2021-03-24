@@ -15,7 +15,7 @@ module.exports = {
     TransformStream: true,
     REFRESH_TOKEN: true,
     CLIENT_SECRET: true,
-    BUCKET: true,
+    ONEDRIVECFINDEX: true,
     AUTH_PASSWORD: true
   }
 }

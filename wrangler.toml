@@ -4,7 +4,7 @@ workers_dev = true
 account_id = "51b353cf63b77ded8f1e7cbdc059d490"
 zone_id = "c5c6a5e78bbd4dc6ee3f33666c967ddd"
 kv_namespaces = [
-    { binding = "onedrive-cf-index", id = "43107d722f6348e2a83482cfdfe0114d" }
+    { binding = "ONEDRIVECFINDEX", id = "0d6bf533d15843468785b28d1a7c67d7" }
 ]
 
 [env.staging]
