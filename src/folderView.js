@@ -49,6 +49,10 @@ export async function renderFolderView(items, path, request) {
       (fileName === '..' ? '' : el('span', ['class="size"'], readableFileSize(size)))
     )
 
+  const intro = `<div class="intro markdown-body" style="text-align: left; margin-top: 2rem;">
+                    <h2>欢迎来到大液泡的网盘 👋</h2>
+                  </div>`
+
   // Check if current directory contains README.md, if true, then render spinner
   let readmeExists = false
   let readmeFetchUrl = ''
