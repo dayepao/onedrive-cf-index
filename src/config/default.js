@@ -17,8 +17,7 @@ const config = {
     sitePath: null
   },
 
-  refresh_token: REFRESH_TOKEN,
-  client_id: '6600e358-9328-4050-af82-0af9cdde796b',
+  client_id: 'b38d4c87-1bd0-421d-ad00-1b3e12c86a24',
   client_secret: CLIENT_SECRET,
 
   /**
@@ -29,7 +28,7 @@ const config = {
   /**
    * The base path for indexing, all files and subfolders are public by this tool. For example: `/Public`.
    */
-  base: '/Public',
+  base: '/VPS',
 
   /**
    * Feature: Pagination when a folder has multiple(>${top}) files
