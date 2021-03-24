@@ -8,7 +8,7 @@ export async function getAccessToken() {
     return Math.floor(Date.now() / 1000)
   }
 
-  const refresh_token = await ONEDRIVECFINDEX.get('refresh_token')
+  const refresh_token = await BUCKET.get('refresh_token')
 
   // Fetch access token
   const data = await BUCKET.get('onedrive', 'json')
